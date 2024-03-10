@@ -1,27 +1,27 @@
 {
   "levels": {
-    "1": {"reward": 500},
-    "2": {"reward": 1000},
-    "3": {"reward": 2000},
-    "4": {"reward": 4000},
-    "5": {"reward": 8000},
-    "6": {"reward": 16000},
-    "7": {"reward": 32000},
-    "8": {"reward": 64000},
-    "9": {"reward": 125000},
-    "10": {"reward": 250000},
-    "11": {"reward": 500000},
-    "12": {"reward": 1000000}
+    "1": { "reward": 500 },
+    "2": { "reward": 1000 },
+    "3": { "reward": 2000 },
+    "4": { "reward": 4000 },
+    "5": { "reward": 8000 },
+    "6": { "reward": 16000 },
+    "7": { "reward": 32000 },
+    "8": { "reward": 64000 },
+    "9": { "reward": 125000 },
+    "10": { "reward": 250000 },
+    "11": { "reward": 500000 },
+    "12": { "reward": 1000000 }
   },
   "questions": {
     "1": {
       "level": 1,
       "question": "Which of these chemical elements is not named after a scientist?",
       "answers": [
-        {"option": "A", "text": "Einsteinium"},
-        {"option": "B", "text": "Curium"},
-        {"option": "C", "text": "Fermium"},
-        {"option": "D", "text": "Gallium"}
+        { "option": "A", "text": "Einsteinium" },
+        { "option": "B", "text": "Curium" },
+        { "option": "C", "text": "Fermium" },
+        { "option": "D", "text": "Gallium" }
       ],
       "correctAnswer": "D"
     },
@@ -29,10 +29,10 @@
       "level": 2,
       "question": "What is the loudest animal on Earth?",
       "answers": [
-        {"option": "A", "text": "Blue whale"},
-        {"option": "B", "text": "African elephant"},
-        {"option": "C", "text": "Howler monkey"},
-        {"option": "D", "text": "Sperm whale"}
+        { "option": "A", "text": "Blue whale" },
+        { "option": "B", "text": "African elephant" },
+        { "option": "C", "text": "Howler monkey" },
+        { "option": "D", "text": "Sperm whale" }
       ],
       "correctAnswer": "D"
     },
@@ -40,10 +40,10 @@
       "level": 3,
       "question": "Which mathematician developed the first mechanical computer, the Difference Engine?",
       "answers": [
-        {"option": "A", "text": "Alan Turing"},
-        {"option": "B", "text": "Charles Babbage"},
-        {"option": "C", "text": "John von Neumann"},
-        {"option": "D", "text": "Blaise Pascal"}
+        { "option": "A", "text": "Alan Turing" },
+        { "option": "B", "text": "Charles Babbage" },
+        { "option": "C", "text": "John von Neumann" },
+        { "option": "D", "text": "Blaise Pascal" }
       ],
       "correctAnswer": "B"
     },
@@ -51,10 +51,10 @@
       "level": 4,
       "question": "The concept of 'gravity' was first discovered by which famous physicist?",
       "answers": [
-        {"option": "A", "text": "Albert Einstein"},
-        {"option": "B", "text": "Isaac Newton"},
-        {"option": "C", "text": "Galileo Galilei"},
-        {"option": "D", "text": "Johannes Kepler"}
+        { "option": "A", "text": "Albert Einstein" },
+        { "option": "B", "text": "Isaac Newton" },
+        { "option": "C", "text": "Galileo Galilei" },
+        { "option": "D", "text": "Johannes Kepler" }
       ],
       "correctAnswer": "B"
     },
@@ -62,10 +62,10 @@
       "level": 5,
       "question": "In Greek mythology, who is the goddess of wisdom?",
       "answers": [
-        {"option": "A", "text": "Aphrodite"},
-        {"option": "B", "text": "Hera"},
-        {"option": "C", "text": "Athena"},
-        {"option": "D", "text": "Artemis"}
+        { "option": "A", "text": "Aphrodite" },
+        { "option": "B", "text": "Hera" },
+        { "option": "C", "text": "Athena" },
+        { "option": "D", "text": "Artemis" }
       ],
       "correctAnswer": "C"
     },
@@ -73,10 +73,10 @@
       "level": 6,
       "question": "Which composer became deaf near the end of his life?",
       "answers": [
-        {"option": "A", "text": "Wolfgang Amadeus Mozart"},
-        {"option": "B", "text": "Johann Sebastian Bach"},
-        {"option": "C", "text": "Ludwig van Beethoven"},
-        {"option": "D", "text": "Franz Schubert"}
+        { "option": "A", "text": "Wolfgang Amadeus Mozart" },
+        { "option": "B", "text": "Johann Sebastian Bach" },
+        { "option": "C", "text": "Ludwig van Beethoven" },
+        { "option": "D", "text": "Franz Schubert" }
       ],
       "correctAnswer": "C"
     },
@@ -84,10 +84,10 @@
       "level": 7,
       "question": "What is the chemical symbol for the element Tungsten?",
       "answers": [
-        {"option": "A", "text": "T"},
-        {"option": "B", "text": "W"},
-        {"option": "C", "text": "Tu"},
-        {"option": "D", "text": "Ts"}
+        { "option": "A", "text": "T" },
+        { "option": "B", "text": "W" },
+        { "option": "C", "text": "Tu" },
+        { "option": "D", "text": "Ts" }
       ],
       "correctAnswer": "B"
     },
@@ -95,10 +95,10 @@
       "level": 8,
       "question": "Which of these countries does not have a president?",
       "answers": [
-        {"option": "A", "text": "Germany"},
-        {"option": "B", "text": "United Kingdom"},
-        {"option": "C", "text": "Italy"},
-        {"option": "D", "text": "Israel"}
+        { "option": "A", "text": "Germany" },
+        { "option": "B", "text": "United Kingdom" },
+        { "option": "C", "text": "Italy" },
+        { "option": "D", "text": "Israel" }
       ],
       "correctAnswer": "B"
     },
@@ -106,10 +106,10 @@
       "level": 9,
       "question": "What is the name of the first artificial Earth satellite, launched by the Soviet Union in 1957?",
       "answers": [
-        {"option": "A", "text": "Sputnik"},
-        {"option": "B", "text": "Vostok"},
-        {"option": "C", "text": "Laika"},
-        {"option": "D", "text": "Mir"}
+        { "option": "A", "text": "Sputnik" },
+        { "option": "B", "text": "Vostok" },
+        { "option": "C", "text": "Laika" },
+        { "option": "D", "text": "Mir" }
       ],
       "correctAnswer": "A"
     },
@@ -117,10 +117,10 @@
       "level": 10,
       "question": "Which philosopher is attributed with the quote 'I can resist everything except temptation'?",
       "answers": [
-        {"option": "A", "text": "Søren Kierkegaard"},
-        {"option": "B", "text": "Friedrich Nietzsche"},
-        {"option": "C", "text": "Oscar Wilde"},
-        {"option": "D", "text": "Jean-Paul Sartre"}
+        { "option": "A", "text": "Søren Kierkegaard" },
+        { "option": "B", "text": "Friedrich Nietzsche" },
+        { "option": "C", "text": "Oscar Wilde" },
+        { "option": "D", "text": "Jean-Paul Sartre" }
       ],
       "correctAnswer": "C"
     },
@@ -128,10 +128,10 @@
       "level": 11,
       "question": "The Kármán Line, the boundary between Earth's atmosphere and outer space, is at what altitude above sea level?",
       "answers": [
-        {"option": "A", "text": "52 miles (84 kilometers)"},
-        {"option": "B", "text": "62 miles (100 kilometers)"},
-        {"option": "C", "text": "76 miles (122 kilometers)"},
-        {"option": "D", "text": "100 miles (160 kilometers)"}
+        { "option": "A", "text": "52 miles (84 kilometers)" },
+        { "option": "B", "text": "62 miles (100 kilometers)" },
+        { "option": "C", "text": "76 miles (122 kilometers)" },
+        { "option": "D", "text": "100 miles (160 kilometers)" }
       ],
       "correctAnswer": "B"
     },
@@ -139,10 +139,10 @@
       "level": 12,
       "question": "In what field was the Nobel Prize first awarded posthumously?",
       "answers": [
-        {"option": "A", "text": "Peace"},
-        {"option": "B", "text": "Chemistry"},
-        {"option": "C", "text": "Literature"},
-        {"option": "D", "text": "Medicine"}
+        { "option": "A", "text": "Peace" },
+        { "option": "B", "text": "Chemistry" },
+        { "option": "C", "text": "Literature" },
+        { "option": "D", "text": "Medicine" }
       ],
       "correctAnswer": "D"
     }
