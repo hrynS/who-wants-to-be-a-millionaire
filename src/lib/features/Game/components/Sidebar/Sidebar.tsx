@@ -1,14 +1,19 @@
 import React from 'react';
-import { classes } from "@/lib/utils/index.ts";
 import styles from './Sidebar.module.css';
+import { GameConfig } from "@/lib/features/Game/types.ts";
+import { moneyFormatter, sortByNumberValue } from "@/lib/utils/index.ts";
 
-export default function Sidebar() {
+interface SidebarProps  {
+    levels: GameConfig['levels']
+}
+
+
+export default function Sidebar({ levels }: SidebarProps) {
+    const sortedLevels = sortByNumberValue(Object.keys(levels));
   return (
     <div className={styles.levelsSidebar}>
       <ol>
-        <li className={styles.level}>$1,000,000</li>
-        <li className={classes(styles.level, styles.levelActive)}>$500,000</li>
-        <li className={classes(styles.level, styles.levelDisabled)}>$250,000</li>
+          {sortedLevels.map((key: string) => <li key={key} className={styles.level}>{moneyFormatter(levels[key].reward)}</li>)}
       </ol>
     </div>
   );

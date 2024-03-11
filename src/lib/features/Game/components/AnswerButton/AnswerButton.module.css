@@ -4,7 +4,7 @@
     justify-content: center;
 }
 
-.answerButton {
+.answerButtonItem .answerButton {
     padding: 1.5rem 2rem;
     background-color: var(--white-color-primary);
     color: var(--text-color-primary);
@@ -15,19 +15,19 @@
     line-height: 1.5rem;
 }
 
-.answerButton:hover {
+.answerButtonItem .answerButton:hover {
     background-color: var(--white-color-primary);
 }
 
-.answerButton:active {
+.answerButtonItem .answerButton:active {
     background-color: var(--orange-color-5);
 }
 
-.answerButtonCorrect {
+.answerButtonItem .answerButtonCorrect {
     background-color: var(--green-color-5);
 }
 
-.answerButtonWrong {
+.answerButtonItem .answerButtonWrong {
     background-color: var(--red-color-5);
 }
 
@@ -37,7 +37,7 @@
         width: 100%;
     }
 
-    .answerButton {
+    .answerButtonItem .answerButton {
         padding: 1.25rem 1.5rem;
         font-size: 0.875rem;
         font-weight: 400;

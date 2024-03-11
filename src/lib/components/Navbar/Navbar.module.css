@@ -1,0 +1,21 @@
+.navbar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar > .burger {
+    padding: 1rem;
+    display: none;
+    background-color: transparent;
+}
+
+/* --mobile-max-width */
+@media (max-width: 700px) {
+    .navbar > .burger {
+        display: flex;
+    }
+}

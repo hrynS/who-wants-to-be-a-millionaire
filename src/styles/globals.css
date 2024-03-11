@@ -42,6 +42,25 @@ body {
   color: var(--text-color-primary);
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5rem;
+  margin: 0 auto;
+  min-height: 100vh;
+  height: 1px;
+  max-width: var(--max-desktop-width);
+}
+
+/* --mobile-max-width */
+@media (max-width: 700px) {
+  main {
+    padding: 3rem 1rem;
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;
