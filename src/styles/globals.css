@@ -1,7 +1,9 @@
 :root {
+  /* TODO: make adaptive for 4k*/
   --max-desktop-width: 1440px;
   --mobile-max-width: 700px;
   --border-radius: 12px;
+  --border-color: #D0D0D8;
 
   --text-color-primary: #1C1C21;
   --text-color-secondary: #88888C;
@@ -12,6 +14,10 @@
   --orange-color-100: #FF8B37;
   --orange-color-80: #FFAC70;
   --orange-color-5: #FFF3EB;
+
+  --green-color-5: #E6FAEA;
+
+  --red-color-5: #FDEEED;
 
   --primary-color-120: var(--orange-color-120);
   --primary-color-100: var(--orange-color-100);
@@ -55,6 +61,12 @@ h2 {
   font-size: 2rem;
   font-weight: 600;
   line-height: 2.3rem;
+}
+
+ul, li {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
 }
 
 /* --mobile-max-width */
