@@ -1,5 +1,5 @@
 import path from 'path';
-import { GameConfig } from '@/lib/features/Game/types.ts';
+import { GameConfig } from '@/lib/features/Game/types/game.ts';
 import { loadJsonFile } from "@/lib/utils/index.ts";
 
 class GameConfigRepository {

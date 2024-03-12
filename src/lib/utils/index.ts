@@ -1,4 +1,4 @@
-import { DEFAULT_CURRENCY, DEFAULT_LOCALE } from "@/lib/contants.ts";
+import { DEFAULT_CURRENCY, DEFAULT_LOCALE } from "@/lib/constants.ts";
 
 export const moneyFormatter = (num: number) => {
     const formatter = new Intl.NumberFormat(DEFAULT_LOCALE, {

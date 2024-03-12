@@ -1,6 +1,6 @@
-type GameLevel = string;
+export type GameLevel = string;
 
-type AnswerOption = 'A' | 'B' | 'C' | 'D';
+export type AnswerOption = 'A' | 'B' | 'C' | 'D';
 
 export interface QuestionAnswer {
   option: AnswerOption;

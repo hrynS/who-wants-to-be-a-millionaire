@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Sidebar.module.css';
-import { GameConfig } from "@/lib/features/Game/types.ts";
+import { GameConfig } from "@/lib/features/Game/types/game.ts";
 import { moneyFormatter, sortByNumberValue } from "@/lib/utils/index.ts";
 
 interface SidebarProps  {
