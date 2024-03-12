@@ -23,7 +23,9 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export const makeStore = () => {
+export type RootPureState = ReturnType<typeof rootReducer>;
+
+export const makeStore = (preloadedState?: RootPureState) => {
   return configureStore({
     devTools: process.env.NODE_ENV !== 'production',
     reducer: persistedReducer,
@@ -33,6 +35,7 @@ export const makeStore = () => {
           ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
         },
       }),
+    preloadedState
   });
 };
 

@@ -1,32 +1,20 @@
 import React from 'react';
-import { AnswerButton, Sidebar } from '@/lib/features/Game/components/index.ts';
-import styles from './page.module.css';
 import GameConfigRepository from "@/lib/repositories/GameConfigRepository.ts";
 import StoreProvider from "@/lib/containers/StoreProvider.tsx";
+import { initialState } from "@/lib/features/Game/slice.ts";
+import Game from "@/lib/features/Game/components/Game/Game.tsx";
 
 const getGameConfig = async () => {
   return GameConfigRepository.getGameConfig();
 }
 
-export default async function Game() {
+export default async function GamePage() {
   const { levels, questions } = await getGameConfig();
-  // const questions = useAppSelector(currentLevelSelector);
-  const currentQuestion = questions[1];
-  const { question, answers } = currentQuestion;
+
 
   return (
-    <StoreProvider>
-    <div className={styles.container}>
-      <div className={styles.quizContainer}>
-        <h2>{question}</h2>
-        <ul className={styles.answers}>
-          {answers.map(({ option, text }) => (
-            <AnswerButton key={option} option={option} text={text} />
-          ))}
-        </ul>
-      </div>
-      <Sidebar levels={levels} />
-    </div>
+    <StoreProvider preloadedState={{game: {...initialState, levels, questions}}}>
+    <Game/>
     </StoreProvider>
   );
 }

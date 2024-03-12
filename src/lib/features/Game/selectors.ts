@@ -5,6 +5,7 @@ export const gameSelector = (state: RootState) => state.game;
 
 export const questionsSelector = createSelector(gameSelector, (game) => game.questions);
 
+export const levelsSelector = createSelector(gameSelector, (game) => game.levels);
 
 export const currentLevelSelector = createSelector(
   gameSelector,

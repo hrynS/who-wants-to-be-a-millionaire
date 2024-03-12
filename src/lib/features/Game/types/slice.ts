@@ -9,4 +9,5 @@ export interface GameState {
   currentLevel: number;
   shouldShowAnswers: boolean;
   questions: GameConfig['questions'];
+  levels:  GameConfig['levels'];
 }

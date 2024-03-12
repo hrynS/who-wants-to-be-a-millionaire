@@ -1,21 +1,17 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo } from "react";
 import styles from './Sidebar.module.css';
-import { GameConfig } from '@/lib/features/Game/types/game.ts';
 import { sortByNumberValue } from '@/lib/utils/index.ts';
 import { moneyFormatter } from '@/lib/utils/index.ts';
 import { useAppSelector } from "@/lib/store/hooks.ts";
-import { currentLevelSelector } from "@/lib/features/Game/selectors.ts";
+import { currentLevelSelector, levelsSelector } from "@/lib/features/Game/selectors.ts";
 import classes from "@/lib/utils/styles.ts";
 
-interface SidebarProps {
-  levels: GameConfig['levels'];
-}
-
-export default function Sidebar({ levels }: SidebarProps) {
+export default function Sidebar() {
+  const levels = useAppSelector(levelsSelector);
   const currentLevel = useAppSelector(currentLevelSelector);
-  const sortedLevels = sortByNumberValue(Object.keys(levels));
+  const sortedLevels = useMemo(() => sortByNumberValue(Object.keys(levels)), [levels]);
 
   const getLevelClasses = (level: number) => {
     if (level === currentLevel) {

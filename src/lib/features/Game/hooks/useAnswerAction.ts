@@ -7,7 +7,7 @@ import { AnswerOption } from '@/lib/features/Game/types/game.ts';
 import { GAME_OVER_URL } from '@/lib/constants.ts';
 import { useRouter } from 'next/navigation';
 import { setLevel, setShouldShowAnswers } from "@/lib/features/Game/slice.ts";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const useAnswerAction = () => {
   const currentLevel = useAppSelector(currentLevelSelector);
@@ -15,23 +15,27 @@ const useAnswerAction = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
 
+  const [selectedOption, setSelectedOption] = useState<AnswerOption | null>(null);
+
   const onAnswer = (option: AnswerOption) => {
-    if (option !== currentQuestion.correctAnswer) {
-      // TODO: add some timeout effects here
-      router.push(GAME_OVER_URL);
-    } else {
-      dispatch(setShouldShowAnswers(true));
-    }
+    setSelectedOption(option);
+    dispatch(setShouldShowAnswers(true));
   };
 
   const shouldShowAnswers = useAppSelector(shouldShowAnswersSelector);
+
   useEffect(() => {
     if (shouldShowAnswers) {
       setTimeout(() => {
-        dispatch(setLevel(currentLevel + 1));
+        if (selectedOption !== currentQuestion.correctAnswer) {
+          // TODO: add some timeout effects here
+          router.push(GAME_OVER_URL);
+        } else {
+          dispatch(setLevel(currentLevel + 1));
+        }
       }, 2500);
     }
-  }, [currentLevel, dispatch, shouldShowAnswers]);
+  }, [currentLevel, dispatch, shouldShowAnswers, selectedOption, currentQuestion.correctAnswer]);
 
   return { onAnswer };
 };

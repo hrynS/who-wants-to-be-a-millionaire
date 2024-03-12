@@ -16,6 +16,7 @@
 /* --mobile-max-width */
 @media (max-width: 700px) {
     .navbar > .burger {
+        width: auto;
         display: flex;
     }
 }
