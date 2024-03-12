@@ -9,7 +9,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from './storage.ts';
-import { gameReducer } from "@/lib/features/Game/slice.ts";
+import { gameReducer } from '@/lib/features/Game/slice.ts';
 
 const rootReducer = combineReducers({
   game: gameReducer,
@@ -18,6 +18,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: 'root',
   storage,
+  whitelist: ['game.questions'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

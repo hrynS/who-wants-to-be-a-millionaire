@@ -2,6 +2,7 @@ import React from 'react';
 import { AnswerButton, Sidebar } from '@/lib/features/Game/components/index.ts';
 import styles from './page.module.css';
 import GameConfigRepository from "@/lib/repositories/GameConfigRepository.ts";
+import StoreProvider from "@/lib/containers/StoreProvider.tsx";
 
 const getGameConfig = async () => {
   return GameConfigRepository.getGameConfig();
@@ -9,20 +10,23 @@ const getGameConfig = async () => {
 
 export default async function Game() {
   const { levels, questions } = await getGameConfig();
+  // const questions = useAppSelector(currentLevelSelector);
   const currentQuestion = questions[1];
-  const {  question, answers} = currentQuestion;
+  const { question, answers } = currentQuestion;
 
   return (
+    <StoreProvider>
     <div className={styles.container}>
       <div className={styles.quizContainer}>
-        <h2>
-          {question}
-        </h2>
+        <h2>{question}</h2>
         <ul className={styles.answers}>
-          {answers.map(({ option, text}) => <AnswerButton key={option} option={option} text={text} />)}
+          {answers.map(({ option, text }) => (
+            <AnswerButton key={option} option={option} text={text} />
+          ))}
         </ul>
       </div>
-        <Sidebar levels={levels}/>
+      <Sidebar levels={levels} />
     </div>
+    </StoreProvider>
   );
 }

@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, ReactNode } from 'react';
 import styles from './Button.module.css';
-import classes from "@/lib/utils/styles.ts";
+import classes from '@/lib/utils/styles.ts';
 
 interface ButtonProps extends PropsWithChildren {
   className?: string;
@@ -15,9 +15,7 @@ function Button({ children, className, onClick, startAdornment }: ButtonProps) {
       className={classes(className, styles.button)}
       onClick={onClick}
     >
-      <div className={styles.startAdornment}>
-        {startAdornment || null}
-      </div>
+      <div className={styles.startAdornment}>{startAdornment || null}</div>
       {children}
     </button>
   );

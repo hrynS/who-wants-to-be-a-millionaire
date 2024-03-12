@@ -4,16 +4,16 @@ import styles from './page.module.css';
 
 export default function Home() {
   return (
-      <main className={styles.main}>
-    <div className={styles.container}>
+    <main className={styles.main}>
+      <div className={styles.container}>
         <Greeting
-        headingText="Who wants to be a millionaire?"
-        buttonProps={{
-          label: 'Start',
-          href: '/game',
-        }}
-      />
-    </div>
-      </main>
+          headingText="Who wants to be a millionaire?"
+          buttonProps={{
+            label: 'Start',
+            href: '/game',
+          }}
+        />
+      </div>
+    </main>
   );
 }

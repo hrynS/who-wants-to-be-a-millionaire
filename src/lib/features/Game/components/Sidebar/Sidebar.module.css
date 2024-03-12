@@ -23,7 +23,7 @@
     color: var(--primary-color-100);
 }
 
-.levelDisabled {
+.levelInactive {
     color: var(--border-color);
 }
 
