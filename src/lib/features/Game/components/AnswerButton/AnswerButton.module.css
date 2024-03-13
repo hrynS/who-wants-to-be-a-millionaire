@@ -5,30 +5,68 @@
 }
 
 .answerButtonItem .answerButton {
+    position: relative;
     padding: 1.5rem 2rem;
-    background-color: var(--white-color-primary);
+    background-color: transparent;
     color: var(--text-color-primary);
-    border: 1px solid var(--border-color);
+    border: none;
     justify-content: flex-start;
     font-size: 1.25rem;
     font-weight: 400;
     line-height: 1.5rem;
+    z-index: 1;
 }
 
 .answerButtonItem .answerButton:hover {
-    background-color: var(--white-color-primary);
+    background-color: transparent;
 }
 
 .answerButtonItem .answerButton:active {
-    background-color: var(--orange-color-5);
+    background-color: transparent;
 }
 
-.answerButtonItem .answerButtonCorrect {
-    background-color: var(--green-color-5);
+.polygonSvg {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    stroke: var(--border-color);
+    z-index: -1;
 }
 
-.answerButtonItem .answerButtonWrong {
-    background-color: var(--red-color-5);
+.answerButtonItem .answerButton::before,
+.answerButtonItem .answerButton::after {
+    content: '';
+    position: absolute;
+    background-color: #000; /* Line color */
+    width: 2px; /* Line width */
+    top: 0;
+    bottom: 0;
+}
+
+.answerButtonItem .answerButton::before {
+    left: 0;
+    transform: translate3d(-100%);
+}
+
+.answerButtonItem .answerButton::after {
+    right: 0;
+}
+
+.polygonSvg:hover path {
+    stroke: var(--primary-color-100);
+}
+
+.answerButtonItem .answerButton:active .polygonSvg path {
+    fill: var(--orange-color-5);
+}
+
+.answerButtonItem .answerButtonCorrect .polygonSvg path {
+    fill: var(--green-color-5);
+}
+
+.answerButtonItem .answerButtonWrong .polygonSvg  path {
+    fill: var(--red-color-5);
 }
 
 /* --mobile-max-width */

@@ -8,8 +8,8 @@ export default function GameLayout({
 }>) {
   return (
     <main className={styles.main}>
-        <Navbar/>
-        {children}
-      </main>
+      <Navbar />
+      {children}
+    </main>
   );
 }

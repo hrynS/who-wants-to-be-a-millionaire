@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Button from '../Button/Button.tsx';
-import greetingImg from '../../../../public/greeting.svg';
+import greetingImg from '../../../../public/greeting.svg?url';
 import styles from './Greeting.module.css';
 
 interface GreetingProps {

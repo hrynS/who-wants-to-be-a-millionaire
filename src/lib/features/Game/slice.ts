@@ -1,5 +1,9 @@
 import { DEFAULT_START_LEVEL } from '@/lib/constants.ts';
-import { GameState, SetLevel, SetShouldShowAnswers } from "@/lib/features/Game/types/slice.ts";
+import {
+  GameState,
+  SetLevel,
+  SetShouldShowAnswers,
+} from '@/lib/features/Game/types/slice.ts';
 import { createSlice } from '@reduxjs/toolkit';
 
 export const initialState: GameState = {
@@ -18,7 +22,10 @@ export const gameSlice = createSlice({
       state.currentLevel = level;
       state.shouldShowAnswers = false;
     },
-    setShouldShowAnswers(state: GameState, { payload: shouldShowAnswers }: SetShouldShowAnswers) {
+    setShouldShowAnswers(
+      state: GameState,
+      { payload: shouldShowAnswers }: SetShouldShowAnswers,
+    ) {
       state.shouldShowAnswers = shouldShowAnswers;
     },
     resetGame() {

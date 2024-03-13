@@ -3,9 +3,15 @@ import { RootState } from '@/lib/store/index.ts';
 
 export const gameSelector = (state: RootState) => state.game;
 
-export const questionsSelector = createSelector(gameSelector, (game) => game.questions);
+export const questionsSelector = createSelector(
+  gameSelector,
+  (game) => game.questions,
+);
 
-export const levelsSelector = createSelector(gameSelector, (game) => game.levels);
+export const levelsSelector = createSelector(
+  gameSelector,
+  (game) => game.levels,
+);
 
 export const currentLevelSelector = createSelector(
   gameSelector,
@@ -17,4 +23,7 @@ export const currentQuestionSelector = createSelector(
   (questions, currentLevel) => questions[currentLevel],
 );
 
-export const shouldShowAnswersSelector = createSelector(gameSelector, (game) => game.shouldShowAnswers)
+export const shouldShowAnswersSelector = createSelector(
+  gameSelector,
+  (game) => game.shouldShowAnswers,
+);

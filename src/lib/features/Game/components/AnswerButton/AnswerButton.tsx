@@ -4,9 +4,13 @@ import React from 'react';
 import { Button } from '@/lib/components/index.ts';
 import styles from './AnswerButton.module.css';
 import { AnswerOption } from '@/lib/features/Game/types/game.ts';
-import { useAppSelector } from "@/lib/store/hooks.ts";
-import { currentQuestionSelector, shouldShowAnswersSelector } from "@/lib/features/Game/selectors.ts";
-import classes from "@/lib/utils/styles.ts";
+import { useAppSelector } from '@/lib/store/hooks.ts';
+import {
+  currentQuestionSelector,
+  shouldShowAnswersSelector,
+} from '@/lib/features/Game/selectors.ts';
+import classes from '@/lib/utils/styles.ts';
+import PolygonButtonIcon from '../../../../../../public/polygon-button.svg';
 
 interface AnswerButtonProps {
   option: AnswerOption;
@@ -14,18 +18,29 @@ interface AnswerButtonProps {
   onAnswer: (arg0: AnswerOption) => void;
 }
 
-export default function AnswerButton({ option, text, onAnswer }: AnswerButtonProps) {
+export default function AnswerButton({
+  option,
+  text,
+  onAnswer,
+}: AnswerButtonProps) {
   const currentQuestion = useAppSelector(currentQuestionSelector);
   const shouldShowAnswers = useAppSelector(shouldShowAnswersSelector);
 
-  const answerClass =  option === currentQuestion.correctAnswer ? styles.answerButtonCorrect : styles.answerButtonWrong;
+  const answerClass =
+    option === currentQuestion.correctAnswer
+      ? styles.answerButtonCorrect
+      : styles.answerButtonWrong;
   return (
     <li className={styles.answerButtonItem}>
       <Button
-        className={classes(styles.answerButton, shouldShowAnswers ? answerClass : undefined)}
+        className={classes(
+          styles.answerButton,
+          shouldShowAnswers ? answerClass : undefined,
+        )}
         startAdornment={option}
         onClick={() => onAnswer(option)}
       >
+        <PolygonButtonIcon className={styles.polygonSvg} />
         {text}
       </Button>
     </li>

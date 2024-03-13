@@ -35,7 +35,7 @@ export const makeStore = (preloadedState?: RootPureState) => {
           ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
         },
       }),
-    preloadedState
+    preloadedState,
   });
 };
 

@@ -1,10 +1,11 @@
 'use client';
+
+import Image from 'next/image';
 import React, { useState } from 'react';
 import styles from './Navbar.module.css';
-import BurgerMenuIcon from '../../../../public/burger-menu.svg';
-import BurgerCloseIcon from '../../../../public/burger-close.svg';
+import burgerMenuSvg from '../../../../public/burger-menu.svg?url';
+import burgerCloseSvg from '../../../../public/burger-close.svg?url';
 import Button from '../Button/Button.tsx';
-
 export default function Navbar() {
   const [isBurgerMenuOpen, setBurgerIsOpen] = useState<boolean>(false);
 
@@ -14,7 +15,11 @@ export default function Navbar() {
         className={styles.burger}
         onClick={() => setBurgerIsOpen(!isBurgerMenuOpen)}
       >
-        {isBurgerMenuOpen ? <BurgerCloseIcon /> : <BurgerMenuIcon />}
+        {isBurgerMenuOpen ? (
+          <Image src={burgerCloseSvg} alt="Close menu" width={24} height={24} />
+        ) : (
+          <Image src={burgerMenuSvg} alt="Close menu" width={24} height={24} />
+        )}
       </Button>
     </nav>
   );
