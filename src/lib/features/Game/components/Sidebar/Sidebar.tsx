@@ -5,15 +5,16 @@ import styles from './Sidebar.module.css';
 import { sortByNumberValue } from '@/lib/utils/index.ts';
 import { moneyFormatter } from '@/lib/utils/index.ts';
 import { useAppSelector } from '@/lib/store/hooks.ts';
-import {
-  currentLevelSelector,
-  levelsSelector,
-} from '@/lib/features/Game/selectors.ts';
+import { currentLevelSelector } from '@/lib/features/Game/selectors.ts';
 import classes from '@/lib/utils/styles.ts';
 import PolygonButtonIcon from '../../../../../../public/polygon-button.svg';
+import { GameConfig } from '@/lib/features/Game/types/game.ts';
 
-export default function Sidebar() {
-  const levels = useAppSelector(levelsSelector);
+interface SidebarProps {
+  levels: GameConfig['levels'];
+}
+
+export default function Sidebar({ levels }: SidebarProps) {
   const currentLevel = useAppSelector(currentLevelSelector);
   const sortedLevels = useMemo(
     () => sortByNumberValue(Object.keys(levels)),
@@ -33,10 +34,10 @@ export default function Sidebar() {
   return (
     <div className={styles.levelsSidebar}>
       <ol>
-        {sortedLevels.map((key: string) => (
-          <li key={key} className={getLevelClasses(+key)}>
+        {sortedLevels.map((level) => (
+          <li key={level} className={getLevelClasses(+level)}>
             <PolygonButtonIcon className={styles.polygonSvg} />
-            {moneyFormatter(levels[key].reward)}
+            {moneyFormatter(levels[level].reward)}
           </li>
         ))}
       </ol>

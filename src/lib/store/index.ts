@@ -1,44 +1,38 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import {
-  persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from 'redux-persist';
-import storage from './storage.ts';
-import { gameReducer } from '@/lib/features/Game/slice.ts';
+import { configureStore, ConfigureStoreOptions } from "@reduxjs/toolkit";
+import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE } from "redux-persist";
+import storage from "./storage.ts";
+import { isServerSide } from "@/lib/utils";
+import { rootReducer } from "@/lib/store/rootReducer.ts";
+import { PersistedStore } from "@/lib/store/types.ts";
 
-const rootReducer = combineReducers({
-  game: gameReducer,
-});
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['game.questions'],
 };
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-
-export type RootPureState = ReturnType<typeof rootReducer>;
-
-export const makeStore = (preloadedState?: RootPureState) => {
+function makeConfiguredStore(reducer: ConfigureStoreOptions['reducer']) {
   return configureStore({
     devTools: process.env.NODE_ENV !== 'production',
-    reducer: persistedReducer,
+    reducer,
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         serializableCheck: {
           ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
         },
       }),
-    preloadedState,
   });
+}
+
+export const makeStore = (): PersistedStore => {
+  if (isServerSide()) {
+    return makeConfiguredStore(rootReducer);
+  }
+
+  const persistedReducer = persistReducer(persistConfig, rootReducer);
+  const store = makeConfiguredStore(persistedReducer) as PersistedStore;
+  store._persistor = persistStore(store);
+
+  return store;
 };
 
-export type AppStore = ReturnType<typeof makeStore>;
-export type RootState = ReturnType<AppStore['getState']>;
-export type AppDispatch = AppStore['dispatch'];

@@ -1,18 +1,27 @@
 import {
   currentLevelSelector,
-  currentQuestionSelector,
   shouldShowAnswersSelector,
 } from '@/lib/features/Game/selectors.ts';
 import { useAppDispatch, useAppSelector } from '@/lib/store/hooks.ts';
-import { AnswerOption } from '@/lib/features/Game/types/game.ts';
-import { GAME_OVER_URL } from '@/lib/constants.ts';
+import {
+  AnswerOption,
+  GameLevel,
+  Question,
+} from '@/lib/features/Game/types/game.ts';
 import { useRouter } from 'next/navigation';
 import { setLevel, setShouldShowAnswers } from '@/lib/features/Game/slice.ts';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import {
+  GAME_OVER_URL,
+  SHOW_ANSWER_TIMEOUT,
+} from '@/lib/features/Game/constants.ts';
 
-const useAnswerAction = () => {
+const useAnswerAction = (levels: GameLevel[], currentQuestion: Question) => {
   const currentLevel = useAppSelector(currentLevelSelector);
-  const currentQuestion = useAppSelector(currentQuestionSelector);
+  const currentLevelData = useMemo(
+    () => levels[currentLevel],
+    [levels, currentLevel],
+  );
   const router = useRouter();
   const dispatch = useAppDispatch();
 
@@ -35,16 +44,21 @@ const useAnswerAction = () => {
           dispatch(setShouldShowAnswers(false));
           router.push(GAME_OVER_URL);
         } else {
-          dispatch(setLevel(currentLevel + 1));
+          dispatch(
+            setLevel({
+              nextLevel: currentLevel + 1,
+              reward: currentLevelData.reward,
+            }),
+          );
         }
-      }, 2500);
+      }, SHOW_ANSWER_TIMEOUT);
     }
   }, [
     currentLevel,
     dispatch,
     shouldShowAnswers,
     selectedOption,
-    currentQuestion.correctAnswer,
+    currentQuestion?.correctAnswer,
   ]);
 
   return { onAnswer };

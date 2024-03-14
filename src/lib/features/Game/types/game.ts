@@ -1,4 +1,4 @@
-export type GameLevel = string;
+export type Level = number;
 
 export type AnswerOption = 'A' | 'B' | 'C' | 'D';
 
@@ -7,23 +7,22 @@ export interface QuestionAnswer {
   text: string;
 }
 
-export interface Level {
+export interface GameLevel {
+  level: Level;
   reward: number;
 }
 
 export interface Question {
   id: string;
-  level: GameLevel;
+  level: Level;
   question: string;
   answers: QuestionAnswer[];
   correctAnswer: AnswerOption;
 }
 
 export interface GameConfig {
-  levels: {
-    [K: GameLevel]: Level;
-  };
+  levels: GameLevel[];
   questions: {
-    [K: GameLevel]: Question;
+    [K: Level]: Question;
   };
 }
