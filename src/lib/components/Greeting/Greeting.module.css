@@ -22,12 +22,20 @@
     margin-bottom: 4rem;
 }
 
+/* --desktop-width*/
+@media (max-width: 1024px) {
+    .greetingImageContainer {
+        padding: 0 2rem;
+        width: 75%;
+    }
+}
+
 /* --mobile-max-width */
 @media (max-width: 700px) {
     .greetingImageContainer {
         width: 100%;
         max-height: 290px;
-        padding: 0;
+        padding: 3rem 0 0;
         margin-bottom: 1.5rem;
     }
 

@@ -1,17 +1,17 @@
 import {
   GameState,
+  SetIsSidebarOpen,
   SetLevel,
   SetShouldShowAnswers,
 } from '@/lib/features/Game/types/slice.ts';
 import { createSlice } from '@reduxjs/toolkit';
-import storage from '@/lib/store/storage.ts';
-import { persistReducer } from 'redux-persist';
 import { DEFAULT_START_LEVEL } from '@/lib/features/Game/constants.ts';
 
 export const initialState: GameState = {
   totalReward: 0,
   currentLevel: DEFAULT_START_LEVEL,
   shouldShowAnswers: false,
+  isSidebarOpen: false,
 };
 
 export const gameSlice = createSlice({
@@ -30,12 +30,19 @@ export const gameSlice = createSlice({
     ) {
       state.shouldShowAnswers = shouldShowAnswers;
     },
+    setIsSidebarOpen(
+      state: GameState,
+      { payload: isSidebarOpen }: SetIsSidebarOpen,
+    ) {
+      state.isSidebarOpen = isSidebarOpen;
+    },
     resetGame() {
       return initialState;
     },
   },
 });
 
-export const { setLevel, setShouldShowAnswers, resetGame } = gameSlice.actions;
+export const { setLevel, setShouldShowAnswers, setIsSidebarOpen, resetGame } =
+  gameSlice.actions;
 
 export const gameReducer = gameSlice.reducer;

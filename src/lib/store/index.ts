@@ -1,27 +1,21 @@
-import { configureStore, ConfigureStoreOptions } from "@reduxjs/toolkit";
-import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE } from "redux-persist";
+import { EnhancedStore } from "@reduxjs/toolkit";
+import { persistReducer, persistStore } from "redux-persist";
+import { isServerSide } from "@/lib/utils/index.ts";
+import rootReducer from "./rootReducer.ts";
 import storage from "./storage.ts";
-import { isServerSide } from "@/lib/utils";
-import { rootReducer } from "@/lib/store/rootReducer.ts";
-import { PersistedStore } from "@/lib/store/types.ts";
-
+import { Persistor } from "redux-persist/es/types";
+import makeConfiguredStore from "@/lib/store/makeConfiguredStore.ts";
+import type { StoreEnhancer, UnknownAction } from "redux";
 
 const persistConfig = {
   key: 'root',
   storage,
 };
 
-function makeConfiguredStore(reducer: ConfigureStoreOptions['reducer']) {
-  return configureStore({
-    devTools: process.env.NODE_ENV !== 'production',
-    reducer,
-    middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({
-        serializableCheck: {
-          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-        },
-      }),
-  });
+type PureRootState = ReturnType<typeof rootReducer>;
+
+export interface PersistedStore extends EnhancedStore<PureRootState, UnknownAction, ReadonlyArray<StoreEnhancer>> {
+  _persistor?: Persistor;
 }
 
 export const makeStore = (): PersistedStore => {
@@ -31,8 +25,14 @@ export const makeStore = (): PersistedStore => {
 
   const persistedReducer = persistReducer(persistConfig, rootReducer);
   const store = makeConfiguredStore(persistedReducer) as PersistedStore;
+  // eslint-disable-next-line no-underscore-dangle
   store._persistor = persistStore(store);
 
   return store;
 };
+
+
+export type AppStore = ReturnType<typeof makeStore>;
+export type RootState = ReturnType<AppStore["getState"]>;
+export type AppDispatch = AppStore["dispatch"];
 

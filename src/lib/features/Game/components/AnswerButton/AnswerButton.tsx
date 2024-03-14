@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@/lib/components/index.ts';
 import styles from './AnswerButton.module.css';
-import { AnswerOption, Question } from "@/lib/features/Game/types/game.ts";
+import { AnswerOption, Question } from '@/lib/features/Game/types/game.ts';
 import { useAppSelector } from '@/lib/store/hooks.ts';
 import { shouldShowAnswersSelector } from '@/lib/features/Game/selectors.ts';
 import classes from '@/lib/utils/styles.ts';

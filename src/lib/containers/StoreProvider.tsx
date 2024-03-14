@@ -2,12 +2,9 @@
 
 import { PropsWithChildren, useRef } from 'react';
 import { Provider } from 'react-redux';
-import { makeStore } from '@/lib/store/index.ts';
-import { persistStore } from 'redux-persist';
+import  { makeStore,AppStore } from "@/lib/store/index.ts";
 import { PersistGate } from 'redux-persist/integration/react';
-import { isServerSide } from "@/lib/utils";
-import { AppStore, RootPureState } from "@/lib/store/types.ts";
-import { Persistor } from "redux-persist/es/types";
+import { Persistor } from 'redux-persist/es/types';
 
 export default function StoreProvider({ children }: PropsWithChildren) {
   const storeRef = useRef<AppStore>();
@@ -19,6 +16,7 @@ export default function StoreProvider({ children }: PropsWithChildren) {
 
   return (
     <Provider store={storeRef.current}>
+      {/* eslint-disable-next-line no-underscore-dangle */}
       <PersistGate persistor={storeRef.current._persistor as Persistor}>
         {() => children}
       </PersistGate>
