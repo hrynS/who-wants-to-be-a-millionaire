@@ -1,27 +1,30 @@
 import {
   currentLevelSelector,
-  shouldShowAnswersSelector,
-} from '@/lib/features/Game/selectors.ts';
+  shouldShowAnswersSelector
+} from "@/lib/features/Game/selectors.ts";
 import { useAppDispatch, useAppSelector } from '@/lib/store/hooks.ts';
 import {
-  AnswerOption,
-  GameLevel,
-  Question,
-} from '@/lib/features/Game/types/game.ts';
+  AnswerOption, GameConfig,
+  Question
+} from "@/lib/features/Game/types/game.ts";
 import { useRouter } from 'next/navigation';
-import { setLevel, setShouldShowAnswers } from '@/lib/features/Game/slice.ts';
-import { useEffect, useMemo, useState } from 'react';
+import { finishGame, setLevel, setShouldShowAnswers } from "@/lib/features/Game/slice.ts";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   GAME_OVER_URL,
   SHOW_ANSWER_TIMEOUT,
 } from '@/lib/features/Game/constants.ts';
+import useGameReset from "@/lib/features/Game/hooks/useGameReset.ts";
+import getLastLevel from "@/lib/features/Game/utils.ts";
 
-const useAnswerAction = (levels: GameLevel[], currentQuestion: Question) => {
+const useAnswerAction = (levels: GameConfig['levels'], currentQuestion: Question) => {
   const currentLevel = useAppSelector(currentLevelSelector);
+  const shouldShowAnswers = useAppSelector(shouldShowAnswersSelector);
   const currentLevelData = useMemo(
     () => levels[currentLevel],
     [levels, currentLevel],
   );
+  const lastLevel = useMemo(() => getLastLevel(levels), [levels]);
   const router = useRouter();
   const dispatch = useAppDispatch();
 
@@ -34,32 +37,40 @@ const useAnswerAction = (levels: GameLevel[], currentQuestion: Question) => {
     dispatch(setShouldShowAnswers(true));
   };
 
-  const shouldShowAnswers = useAppSelector(shouldShowAnswersSelector);
+  const handleAnswer = useCallback(() => {
+    const isWrongAnswer =  selectedOption && !currentQuestion.correctAnswers.includes(selectedOption);
+    const isLastLevel = currentLevel === lastLevel;
+
+    if (isWrongAnswer || isLastLevel) {
+      dispatch(finishGame({
+totalReward: currentLevelData.reward
+      }));
+      router.push(GAME_OVER_URL);
+    } else {
+      dispatch(
+        setLevel({ nextLevel: currentLevel + 1, totalReward: currentLevelData.reward }),
+      );
+    }
+  }, [
+    currentLevel,
+    dispatch,
+    shouldShowAnswers,currentQuestion.correctAnswers, lastLevel, router, selectedOption
+  ])
 
   useEffect(() => {
     if (shouldShowAnswers) {
       setTimeout(() => {
-        if (selectedOption !== currentQuestion.correctAnswer) {
-          // TODO: add some timeout effects here
-          dispatch(setShouldShowAnswers(false));
-          router.push(GAME_OVER_URL);
-        } else {
-          dispatch(
-            setLevel({
-              nextLevel: currentLevel + 1,
-              reward: currentLevelData.reward,
-            }),
-          );
-        }
+        handleAnswer();
       }, SHOW_ANSWER_TIMEOUT);
     }
   }, [
     currentLevel,
     dispatch,
     shouldShowAnswers,
-    selectedOption,
-    currentQuestion?.correctAnswer,
+    handleAnswer
   ]);
+
+  useGameReset();
 
   return { onAnswer };
 };

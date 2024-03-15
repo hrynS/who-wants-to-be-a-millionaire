@@ -17,11 +17,13 @@ export interface Question {
   level: Level;
   question: string;
   answers: QuestionAnswer[];
-  correctAnswer: AnswerOption;
+  correctAnswers: AnswerOption[];
 }
 
 export interface GameConfig {
-  levels: GameLevel[];
+  levels: {
+    [K: Level]: GameLevel;
+  };
   questions: {
     [K: Level]: Question;
   };

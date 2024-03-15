@@ -14,6 +14,11 @@ export const shouldShowAnswersSelector = createSelector(
   (game) => game.shouldShowAnswers,
 );
 
+export const shouldResetGameSelector = createSelector(
+  gameSelector,
+  (game) => game.shouldResetGame,
+);
+
 export const isSidebarOpenSelector = createSelector(
   gameSelector,
   (game) => game.isSidebarOpen,

@@ -23,7 +23,7 @@ export default function AnswerButton({
   const shouldShowAnswers = useAppSelector(shouldShowAnswersSelector);
 
   const answerClass =
-    option === currentQuestion.correctAnswer
+    currentQuestion.correctAnswers.includes(option)
       ? styles.answerButtonCorrect
       : styles.answerButtonWrong;
   return (

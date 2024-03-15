@@ -11,7 +11,7 @@ interface GreetingProps {
   buttonProps: {
     href: string;
     label: string;
-    onClick: () => void;
+    onClick?: () => void;
   };
 }
 
@@ -36,9 +36,11 @@ function Greeting({
       <section className={styles.section}>
         {summaryText ? <h2 className={styles.summary}>{summaryText}</h2> : null}
         <h1 className={styles.heading}>{headingText}</h1>
-        <Link className={styles.link} href={href}>
-          <Button onClick={onClick}>{label}</Button>
-        </Link>
+            <Link className={styles.link} href={href}>
+              <Button onClick={onClick}>
+              {label}
+              </Button>
+            </Link>
       </section>
     </>
   );

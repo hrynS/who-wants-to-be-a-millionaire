@@ -24,7 +24,7 @@
         { "option": "C", "text": "Fermium" },
         { "option": "D", "text": "Gallium" }
       ],
-      "correctAnswer": "D"
+      "correctAnswers": ["D"]
     },
     "2": {
       "id": "22",
@@ -36,7 +36,7 @@
         { "option": "C", "text": "Howler monkey" },
         { "option": "D", "text": "Sperm whale" }
       ],
-      "correctAnswer": "D"
+      "correctAnswers": ["D"]
     },
     "3": {
       "id": "33",
@@ -48,7 +48,7 @@
         { "option": "C", "text": "John von Neumann" },
         { "option": "D", "text": "Blaise Pascal" }
       ],
-      "correctAnswer": "B"
+      "correctAnswers": ["B"]
     },
     "4": {
       "id": "44",
@@ -60,7 +60,7 @@
         { "option": "C", "text": "Galileo Galilei" },
         { "option": "D", "text": "Johannes Kepler" }
       ],
-      "correctAnswer": "B"
+      "correctAnswers": ["B"]
     },
     "5": {
       "id": "55",
@@ -72,7 +72,7 @@
         { "option": "C", "text": "Athena" },
         { "option": "D", "text": "Artemis" }
       ],
-      "correctAnswer": "C"
+      "correctAnswers": ["C"]
     },
     "6": {
       "id": "66",
@@ -84,7 +84,7 @@
         { "option": "C", "text": "Ludwig van Beethoven" },
         { "option": "D", "text": "Franz Schubert" }
       ],
-      "correctAnswer": "C"
+      "correctAnswers": ["C"]
     },
     "7": {
       "id": "77",
@@ -96,7 +96,7 @@
         { "option": "C", "text": "Tu" },
         { "option": "D", "text": "Ts" }
       ],
-      "correctAnswer": "B"
+      "correctAnswers": ["B"]
     },
     "8": {
       "id": "88",
@@ -108,7 +108,7 @@
         { "option": "C", "text": "Italy" },
         { "option": "D", "text": "Israel" }
       ],
-      "correctAnswer": "B"
+      "correctAnswers": ["B"]
     },
     "9": {
       "id": "99",
@@ -120,7 +120,7 @@
         { "option": "C", "text": "Laika" },
         { "option": "D", "text": "Mir" }
       ],
-      "correctAnswer": "A"
+      "correctAnswers": ["A"]
     },
     "10": {
       "id": "1010",
@@ -132,7 +132,7 @@
         { "option": "C", "text": "Oscar Wilde" },
         { "option": "D", "text": "Jean-Paul Sartre" }
       ],
-      "correctAnswer": "C"
+      "correctAnswers": ["C"]
     },
     "11": {
       "id": "1111",
@@ -144,7 +144,7 @@
         { "option": "C", "text": "76 miles (122 kilometers)" },
         { "option": "D", "text": "100 miles (160 kilometers)" }
       ],
-      "correctAnswer": "B"
+      "correctAnswers": ["B"]
     },
     "12": {
       "id": "1212",
@@ -156,7 +156,7 @@
         { "option": "C", "text": "Literature" },
         { "option": "D", "text": "Medicine" }
       ],
-      "correctAnswer": "D"
+      "correctAnswers": ["D"]
     }
   }
 }

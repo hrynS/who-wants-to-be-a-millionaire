@@ -22,6 +22,10 @@
     margin-bottom: 4rem;
 }
 
+.link {
+    max-width: 300px;
+}
+
 /* --desktop-width*/
 @media (max-width: 1024px) {
     .greetingImageContainer {

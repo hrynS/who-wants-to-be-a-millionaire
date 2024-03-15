@@ -10,6 +10,7 @@ import type { StoreEnhancer, UnknownAction } from "redux";
 const persistConfig = {
   key: 'root',
   storage,
+  blacklist: ['game.shouldResetGame']
 };
 
 type PureRootState = ReturnType<typeof rootReducer>;

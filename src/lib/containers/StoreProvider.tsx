@@ -18,7 +18,7 @@ export default function StoreProvider({ children }: PropsWithChildren) {
     <Provider store={storeRef.current}>
       {/* eslint-disable-next-line no-underscore-dangle */}
       <PersistGate persistor={storeRef.current._persistor as Persistor}>
-        {() => children}
+        {children}
       </PersistGate>
     </Provider>
   );

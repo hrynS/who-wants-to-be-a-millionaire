@@ -15,7 +15,7 @@ function Button({ children, className, onClick, startAdornment }: ButtonProps) {
       className={classes(className, styles.button)}
       onClick={onClick}
     >
-      <div className={styles.startAdornment}>{startAdornment || null}</div>
+      {startAdornment ? <div className={styles.startAdornment}>{startAdornment}</div> : null}
       {children}
     </button>
   );
