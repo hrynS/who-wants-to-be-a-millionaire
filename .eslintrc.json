@@ -24,6 +24,7 @@
         "props": true,
         "ignorePropertyModificationsFor": ["state"]
       }
-    ]
+    ],
+    "import/no-extraneous-dependencies": 0
   }
 }
