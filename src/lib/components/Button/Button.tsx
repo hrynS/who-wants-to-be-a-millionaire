@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, ReactNode } from 'react';
-import styles from './Button.module.css';
 import classes from '@/lib/utils/styles.ts';
+import styles from './Button.module.css';
 
 interface ButtonProps extends PropsWithChildren {
   className?: string;

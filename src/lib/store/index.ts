@@ -1,11 +1,11 @@
 import { EnhancedStore } from '@reduxjs/toolkit';
+import type { StoreEnhancer, UnknownAction } from 'redux';
 import { persistReducer, persistStore } from 'redux-persist';
+import { Persistor } from 'redux-persist/es/types';
+import makeConfiguredStore from '@/lib/store/makeConfiguredStore.ts';
 import { isServerSide } from '@/lib/utils/index.ts';
 import rootReducer from './rootReducer.ts';
 import storage from './storage.ts';
-import { Persistor } from 'redux-persist/es/types';
-import makeConfiguredStore from '@/lib/store/makeConfiguredStore.ts';
-import type { StoreEnhancer, UnknownAction } from 'redux';
 
 const persistConfig = {
   key: 'root',

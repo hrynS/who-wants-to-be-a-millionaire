@@ -13,7 +13,7 @@ interface GameProps {
   levels: GameConfig['levels'];
 }
 
-const Game = ({ levels, questions }: GameProps) => {
+function Game({ levels, questions }: GameProps) {
   const currentLevel = useAppSelector(currentLevelSelector);
   const currentQuestion = questions[currentLevel];
 
@@ -43,6 +43,6 @@ const Game = ({ levels, questions }: GameProps) => {
       <Sidebar levels={levels} />
     </div>
   );
-};
+}
 
 export default Game;

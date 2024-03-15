@@ -2,13 +2,13 @@
 
 import Image from 'next/image';
 import React from 'react';
-import styles from './Navbar.module.css';
-import burgerMenuSvg from '../../../../../../public/burger-menu.svg?url';
-import burgerCloseSvg from '../../../../../../public/burger-close.svg?url';
 import { Button } from '@/lib/components/index.ts';
 import { useAppDispatch, useAppSelector } from '@/lib/store/hooks.ts';
 import { setIsSidebarOpen } from '@/lib/features/Game/slice.ts';
 import { isSidebarOpenSelector } from '@/lib/features/Game/selectors/index.ts';
+import burgerMenuSvg from '../../../../../../public/burger-menu.svg?url';
+import burgerCloseSvg from '../../../../../../public/burger-close.svg?url';
+import styles from './Navbar.module.css';
 
 export default function Navbar() {
   const dispatch = useAppDispatch();

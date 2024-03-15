@@ -69,12 +69,11 @@ const useAnswerAction = (
   }, [
     currentLevel,
     dispatch,
-    shouldShowAnswers,
     currentQuestion.correctAnswers,
     lastLevel,
     router,
     selectedOption,
-    currentLevelData.reward
+    currentLevelData.reward,
   ]);
 
   useEffect(() => {
