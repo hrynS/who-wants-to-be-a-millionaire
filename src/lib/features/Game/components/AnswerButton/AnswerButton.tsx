@@ -3,7 +3,7 @@ import { Button } from '@/lib/components/index.ts';
 import styles from './AnswerButton.module.css';
 import { AnswerOption, Question } from '@/lib/features/Game/types/game.ts';
 import { useAppSelector } from '@/lib/store/hooks.ts';
-import { shouldShowAnswersSelector } from '@/lib/features/Game/selectors.ts';
+import { shouldShowAnswersSelector } from '@/lib/features/Game/selectors/index.ts';
 import classes from '@/lib/utils/styles.ts';
 import PolygonButtonIcon from '../../../../../../public/polygon-button.svg';
 
@@ -22,10 +22,9 @@ export default function AnswerButton({
 }: AnswerButtonProps) {
   const shouldShowAnswers = useAppSelector(shouldShowAnswersSelector);
 
-  const answerClass =
-    currentQuestion.correctAnswers.includes(option)
-      ? styles.answerButtonCorrect
-      : styles.answerButtonWrong;
+  const answerClass = currentQuestion.correctAnswers.includes(option)
+    ? styles.answerButtonCorrect
+    : styles.answerButtonWrong;
   return (
     <li className={styles.answerButtonItem}>
       <Button

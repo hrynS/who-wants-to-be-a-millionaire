@@ -1,6 +1,9 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 
-export type SetLevel = PayloadAction<{ nextLevel: number, totalReward: number }>;
+export type SetLevel = PayloadAction<{
+  nextLevel: number;
+  totalReward: number;
+}>;
 
 export type SetShouldShowAnswers = PayloadAction<boolean>;
 

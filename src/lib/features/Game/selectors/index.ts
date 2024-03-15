@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { RootState } from "@/lib/store/index.ts";
+import { RootState } from '@/lib/store/index.ts';
 
 export const gameSelector = (state: RootState) => state.game;
 

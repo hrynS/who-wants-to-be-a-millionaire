@@ -1,21 +1,26 @@
-import { EnhancedStore } from "@reduxjs/toolkit";
-import { persistReducer, persistStore } from "redux-persist";
-import { isServerSide } from "@/lib/utils/index.ts";
-import rootReducer from "./rootReducer.ts";
-import storage from "./storage.ts";
-import { Persistor } from "redux-persist/es/types";
-import makeConfiguredStore from "@/lib/store/makeConfiguredStore.ts";
-import type { StoreEnhancer, UnknownAction } from "redux";
+import { EnhancedStore } from '@reduxjs/toolkit';
+import { persistReducer, persistStore } from 'redux-persist';
+import { isServerSide } from '@/lib/utils/index.ts';
+import rootReducer from './rootReducer.ts';
+import storage from './storage.ts';
+import { Persistor } from 'redux-persist/es/types';
+import makeConfiguredStore from '@/lib/store/makeConfiguredStore.ts';
+import type { StoreEnhancer, UnknownAction } from 'redux';
 
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['game.shouldResetGame']
+  blacklist: ['game.shouldResetGame'],
 };
 
 type PureRootState = ReturnType<typeof rootReducer>;
 
-export interface PersistedStore extends EnhancedStore<PureRootState, UnknownAction, ReadonlyArray<StoreEnhancer>> {
+export interface PersistedStore
+  extends EnhancedStore<
+    PureRootState,
+    UnknownAction,
+    ReadonlyArray<StoreEnhancer>
+  > {
   _persistor?: Persistor;
 }
 
@@ -32,8 +37,6 @@ export const makeStore = (): PersistedStore => {
   return store;
 };
 
-
 export type AppStore = ReturnType<typeof makeStore>;
-export type RootState = ReturnType<AppStore["getState"]>;
-export type AppDispatch = AppStore["dispatch"];
-
+export type RootState = ReturnType<AppStore['getState']>;
+export type AppDispatch = AppStore['dispatch'];

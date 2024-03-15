@@ -4,7 +4,7 @@ import styles from '@/lib/features/Game/components/Game/Game.module.css';
 import { AnswerButton, Sidebar } from '@/lib/features/Game/components/index.ts';
 import React from 'react';
 import { useAppSelector } from '@/lib/store/hooks.ts';
-import { currentLevelSelector } from '@/lib/features/Game/selectors.ts';
+import { currentLevelSelector } from '@/lib/features/Game/selectors/index.ts';
 import useAnswerAction from '@/lib/features/Game/hooks/useAnswerAction.ts';
 import { GameConfig } from '@/lib/features/Game/types/game.ts';
 

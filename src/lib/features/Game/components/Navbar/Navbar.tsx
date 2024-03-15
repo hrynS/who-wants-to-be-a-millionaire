@@ -8,7 +8,7 @@ import burgerCloseSvg from '../../../../../../public/burger-close.svg?url';
 import { Button } from '@/lib/components/index.ts';
 import { useAppDispatch, useAppSelector } from '@/lib/store/hooks.ts';
 import { setIsSidebarOpen } from '@/lib/features/Game/slice.ts';
-import { isSidebarOpenSelector } from '@/lib/features/Game/selectors.ts';
+import { isSidebarOpenSelector } from '@/lib/features/Game/selectors/index.ts';
 
 export default function Navbar() {
   const dispatch = useAppDispatch();

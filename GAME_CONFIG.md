@@ -32,7 +32,7 @@ Organizing the configuration as we have provides several key advantages:
         } 
         // ...
       ],
-      "correctAnswer": ["D"]
+      "correctAnswers": ["D"]
     }
     // ...
   }
@@ -67,7 +67,7 @@ the questions easily.
     "level": Integer,
     "question": String,
     "answers": Array,
-    "correctAnswer": Array
+    "correctAnswers": Array
   }
 }
 ```
@@ -75,7 +75,8 @@ the questions easily.
 - **level**: `Integer`. Echoes the level identifier, reinforcing the question's placement in the game.
 - **question**: `String`. The actual question text presented to the player.
 - **answers**: `Array`. An array of objects, each representing a possible answer choice.
-- **correctAnswer**: `Array`. An array containing the correct answer identifier(s), linking directly to the 'option' field in answers.
+- **correctAnswers**: `Array`. An array containing the correct answer identifier(s), linking directly to the 
+  'option' field in answers.
 
 ### Answers Array
 
@@ -95,5 +96,6 @@ the questions easily.
 
 - Ensure the integrity of the JSON structure when adding or editing questions.
 - Rewards should be updated within the `levels` object to maintain consistency with question difficulty.
-- The `correctAnswer` field in the `questions` object must always correlate with the `option` value within the `answers` array for accuracy.
+- The `correctAnswers` field in the `questions` object must always correlate with the `option` value within the 
+  `answers` array for accuracy.
 - Adjustments to level numbers must be reflected in both the `levels` and `questions` objects to keep the game progression logical and orderly.

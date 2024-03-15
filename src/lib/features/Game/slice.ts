@@ -1,9 +1,10 @@
 import {
-  GameState, SetFinishGame,
+  GameState,
+  SetFinishGame,
   SetIsSidebarOpen,
   SetLevel,
-  SetShouldShowAnswers
-} from "@/lib/features/Game/types/slice.ts";
+  SetShouldShowAnswers,
+} from '@/lib/features/Game/types/slice.ts';
 import { createSlice } from '@reduxjs/toolkit';
 import { DEFAULT_START_LEVEL } from '@/lib/features/Game/constants.ts';
 
@@ -19,7 +20,10 @@ export const gameSlice = createSlice({
   name: 'game',
   initialState,
   reducers: {
-    setLevel(state: GameState, { payload: { nextLevel, totalReward }}: SetLevel) {
+    setLevel(
+      state: GameState,
+      { payload: { nextLevel, totalReward } }: SetLevel,
+    ) {
       state.totalReward = totalReward;
       state.currentLevel = nextLevel;
       state.shouldShowAnswers = false;
@@ -37,10 +41,7 @@ export const gameSlice = createSlice({
     ) {
       state.isSidebarOpen = isSidebarOpen;
     },
-    finishGame(
-      state: GameState,
-      { payload: { totalReward } }: SetFinishGame,
-    ) {
+    finishGame(state: GameState, { payload: { totalReward } }: SetFinishGame) {
       state.totalReward = totalReward;
       state.shouldShowAnswers = false;
       state.shouldResetGame = true;
@@ -51,7 +52,12 @@ export const gameSlice = createSlice({
   },
 });
 
-export const { setLevel, setShouldShowAnswers, setIsSidebarOpen, resetGame, finishGame } =
-  gameSlice.actions;
+export const {
+  setLevel,
+  setShouldShowAnswers,
+  setIsSidebarOpen,
+  resetGame,
+  finishGame,
+} = gameSlice.actions;
 
 export const gameReducer = gameSlice.reducer;

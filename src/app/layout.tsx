@@ -18,7 +18,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* TODO: add error boundary */}
       <body className={inter.className}>
         <StoreProvider>{children}</StoreProvider>
       </body>

@@ -2,7 +2,7 @@
 
 import { PropsWithChildren, useRef } from 'react';
 import { Provider } from 'react-redux';
-import  { makeStore,AppStore } from "@/lib/store/index.ts";
+import { makeStore, AppStore } from '@/lib/store/index.ts';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Persistor } from 'redux-persist/es/types';
 

@@ -8,7 +8,7 @@ import { useAppSelector } from '@/lib/store/hooks.ts';
 import {
   currentLevelSelector,
   isSidebarOpenSelector,
-} from '@/lib/features/Game/selectors.ts';
+} from '@/lib/features/Game/selectors/index.ts';
 import classes from '@/lib/utils/styles.ts';
 import PolygonButtonIcon from '../../../../../../public/polygon-button.svg';
 import { GameConfig } from '@/lib/features/Game/types/game.ts';
