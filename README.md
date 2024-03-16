@@ -40,4 +40,4 @@ Documentation on game configuration can be found in the [Game config](./GAME_CON
 
 ## Deploy on Vercel
 
-The application is deployed on Vercel via vercel-cli. You can check it out [here](https://who-wants-to-be-a-millionaire-7yhwbi5ps-hryns-projects.vercel.app/).
+The application is deployed on Vercel via vercel-cli. You can check it out [here](https://who-wants-to-be-a-millionaire-taupe.vercel.app/).
