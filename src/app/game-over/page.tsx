@@ -13,18 +13,18 @@ export default function GameOver() {
 
   return (
     <div className={layoutStyles.wrapper}>
-    <main className={layoutStyles.main}>
-      <div className={styles.container}>
-        <Greeting
-          summaryText="Total score:"
-          headingText={`${moneyFormatter(totalReward)} earned`}
-          buttonProps={{
-            label: 'Try again',
-            href: '/game',
-          }}
-        />
-      </div>
-    </main>
+      <main className={layoutStyles.main}>
+        <div className={styles.container}>
+          <Greeting
+            summaryText="Total score:"
+            headingText={`${moneyFormatter(totalReward)} earned`}
+            buttonProps={{
+              label: 'Try again',
+              href: '/game',
+            }}
+          />
+        </div>
+      </main>
     </div>
   );
 }

@@ -52,9 +52,12 @@ const useAnswerAction = (
     const isLastLevel = currentLevel === lastLevel;
 
     if (isWrongAnswer || isLastLevel) {
+      const lostLevelReward = levels[currentLevel - 1]?.reward ?? 0;
+      const isGameWon = isLastLevel && !isWrongAnswer;
+
       dispatch(
         finishGame({
-          totalReward: currentLevelData.reward,
+          totalReward: isGameWon ? currentLevelData.reward : lostLevelReward,
         }),
       );
       router.push(GAME_OVER_URL);
@@ -67,6 +70,7 @@ const useAnswerAction = (
       );
     }
   }, [
+    levels,
     currentLevel,
     dispatch,
     currentQuestion.correctAnswers,

@@ -9,10 +9,10 @@ export default function GameLayout({
 }>) {
   return (
     <div className={styles.wrapper}>
-    <main className={styles.main}>
-      <Navbar />
-      {children}
-    </main>
+      <main className={styles.main}>
+        <Navbar />
+        {children}
+      </main>
     </div>
   );
 }

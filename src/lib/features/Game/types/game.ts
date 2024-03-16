@@ -8,7 +8,6 @@ export interface QuestionAnswer {
 }
 
 export interface GameLevel {
-  level: Level;
   reward: number;
 }
 
