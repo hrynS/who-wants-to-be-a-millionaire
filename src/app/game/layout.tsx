@@ -1,7 +1,6 @@
 import React from 'react';
 import { Navbar } from '@/lib/features/Game/components/index.ts';
 import styles from '@/styles/layout.module.css';
-import '@/styles/page.css';
 
 export default function GameLayout({
   children,
@@ -9,9 +8,11 @@ export default function GameLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <div className={styles.wrapper}>
     <main className={styles.main}>
       <Navbar />
       {children}
     </main>
+    </div>
   );
 }
