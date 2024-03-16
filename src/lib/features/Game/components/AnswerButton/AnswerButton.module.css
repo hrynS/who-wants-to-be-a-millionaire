@@ -66,12 +66,16 @@
 }
 
 .answerButtonItem .answerButtonCorrect::before,
-.answerButtonItem .answerButtonCorrect::after {
+.answerButtonItem .answerButtonCorrect::after,
+.answerButtonItem .answerButtonCorrect:hover::before,
+.answerButtonItem .answerButtonCorrect:hover::after {
     background-color: var(--green-color-100);
 }
 
 .answerButtonItem .answerButtonWrong::before,
-.answerButtonItem .answerButtonWrong::after {
+.answerButtonItem .answerButtonWrong::after,
+.answerButtonItem .answerButtonWrong:hover::before,
+.answerButtonItem .answerButtonWrong:hover::after {
     background-color: var(--red-color-100);
 }
 
@@ -83,12 +87,14 @@
     fill: var(--orange-color-5);
 }
 
-.answerButtonItem .answerButtonCorrect .polygonSvg path {
+.answerButtonItem .answerButtonCorrect .polygonSvg path,
+.answerButtonItem .answerButtonCorrect:hover .polygonSvg path {
     stroke: var(--green-color-100);
     fill: var(--green-color-5);
 }
 
-.answerButtonItem .answerButtonWrong .polygonSvg  path {
+.answerButtonItem .answerButtonWrong .polygonSvg  path,
+.answerButtonItem .answerButtonWrong:hover .polygonSvg  path {
     stroke: var(--red-color-100);
     fill: var(--red-color-5);
 }
